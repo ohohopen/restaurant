@@ -96,3 +96,40 @@ header {
 		height: auto;
 	}
 }
+.card-box {
+}
+.card-box .card {
+	display: flex;
+}
+
+.create {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #9b4b4b;
+	color: #fff;
+	flex-flow: wrap column;
+	position: fixed;
+	right: 5px;
+	bottom: 5px;
+	font-size: 15px;
+}
+.create .fas {
+	font-size: 20px;
+}
+.feature {
+	text-align: right;
+	font-size: 20px;
+	color: #666;
+}
+.feature a {
+	color: #666;
+	text-decoration: none;
+}
+.feature a {
+	color: #666;
+	text-decoration: none;
+}

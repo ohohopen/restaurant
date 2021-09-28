@@ -11,6 +11,8 @@ db.once("open", () => console.log("Database connecting"));
 const Todo = require("./models/todo");
 //執行express
 const app = express();
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 //設置樣板引擎
 app.engine("hbs", exphbs({ defaultLayout: "main", extname: "hbs" }));
@@ -24,6 +26,16 @@ app.get("/", (req, res) => {
 		})
 		.catch((error) => console.log(error));
 });
+
+//瀏覽單筆資料
+app.get("/todos/:id", (req, res) => {
+	const id = req.params.id;
+	Todo.findById(id)
+		.lean()
+		.then((todos) => res.render("show", { todos }))
+		.catch((error) => console.log(error));
+});
+
 //監聽app.js
 app.listen(port, () => {
 	console.log("app.js is listening");
