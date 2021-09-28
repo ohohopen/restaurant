@@ -20,12 +20,14 @@
 					/>
 				</div>
 				<div class="form-group">
-					<input
-						type="text"
-						name="category"
-						class="form-control"
-						value="{{todos.category}}"
-					/>
+					<select name="category" class="form-control" id="category">
+            <option class="option" value="義式餐廳">義式餐廳</option>
+						<option class="option" value="日本料理">日本料理</option>
+						<option class="option" value="中東料理">中東料理</option>
+						<option class="option" value="美式">美式</option>
+						<option class="option" value="咖啡">咖啡</option>
+						<option class="option" value="酒吧">酒吧</option>
+					</select>
 				</div>
 				<div class="form-group">
 					<input
@@ -59,14 +61,39 @@
 						value="{{todos.google_map}}"
 					/>
 				</div>
-				<div class="form-group">
-					<input
-						type="text"
-						name="rating"
-						class="form-control"
-						value="{{todos.rating}}"
-					/>
-				</div>
+        <div class="form-group text-left">
+          <span>評價：</span>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input rating_radio" type="radio" name="rating" id="level1" value="1" checked>
+            <label class="form-check-label" for="level1">
+              <i class="fas fa-star"></i> 難吃爆
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input rating_radio" type="radio" name="rating" id="level2" value="2">
+            <label class="form-check-label" for="level2">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i> 很普通
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input rating_radio" type="radio" name="rating" id="level3" value="3">
+            <label class="form-check-label" for="level3">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 還可以
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input rating_radio" type="radio" name="rating" id="level4" value="4">
+            <label class="form-check-label" for="level4">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 不錯唷
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input rating_radio" type="radio" name="rating" id="level5" value="5">
+            <label class="form-check-label" for="level5">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 超好吃
+            </label>
+          </div>
+        </div>
 				<div class="form-group">
 					<textarea
 						name="description"
@@ -81,3 +108,33 @@
 		</div>
 	</div>
 </div>
+<script>
+  {{!-- 取出餐廳類別的option選項，抓出與本頁todos.category的選項將其selected設為true --}}
+  (function (){
+    const	options=document.querySelectorAll('option'); 
+    const arr=[...options]
+    arr.forEach((item)=>{
+      if(item.innerText==='{{ todos.category }}'){
+          {{!-- console.log(item.innerHTML)  --}}
+          {{!-- item.outerHTML=null; --}}
+          item.selected=true
+        {{!-- console.log(item.outerHTML) --}}
+      }
+    })
+  }())
+
+  {{!--取出餐廳評價的radio，抓出與本頁todos.rating的數字相符的選項將其chedked設為true--}}
+
+  (function () {
+    const ratingRadios = document.querySelectorAll('.rating_radio');
+    const arr = [...ratingRadios]
+    arr.forEach((item) => {
+      item.checked =false
+      if (item.value === '{{ todos.rating }}') {
+        item.checked = true
+      }
+    })
+  }())
+
+  
+</script>

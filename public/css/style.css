@@ -147,6 +147,9 @@ header {
 form {
 	text-align: center;
 }
+button {
+	cursor: pointer;
+}
 .btn-ok {
 	background-color: #4592af;
 	color: #fff;
