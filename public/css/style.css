@@ -133,6 +133,17 @@ header {
 	color: #666;
 	text-decoration: none;
 }
+.feature form {
+	display: inline;
+}
+.feature button {
+	border: 0;
+	background: none;
+	color: #666;
+	text-decoration: none;
+	display: inline;
+}
+
 form {
 	text-align: center;
 }

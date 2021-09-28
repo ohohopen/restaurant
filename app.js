@@ -101,7 +101,14 @@ app.post("/todos/:id/edit", (req, res) => {
 		.then(() => res.redirect("/"))
 		.catch((error) => console.log(error));
 });
-
+//刪除單筆資料
+app.post("/todos/:id/delete", (req, res) => {
+	const id = req.params.id;
+	Todo.findById(id)
+		.then((todo) => todo.remove())
+		.then(() => res.redirect("/"))
+		.catch((error) => console.log(error));
+});
 //監聽app.js
 app.listen(port, () => {
 	console.log("app.js is listening");
