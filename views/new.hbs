@@ -1,0 +1,86 @@
+<h1 class="mb-1 restaurant-show-title">新增餐廳</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-12 mx-auto">
+			<form action="/todos/new" method="POST">
+				<div class="form-group">
+					<input
+						type="text"
+						name="name"
+						class="form-control"
+						placeholder="餐廳名稱"
+					/>
+				</div>
+				<div class="form-group">
+					<input
+						type="text"
+						name="name_en"
+						class="form-control"
+						placeholder="餐廳英文名稱"
+					/>
+				</div>
+				<div class="form-group">
+					<input
+						type="text"
+						name="category"
+						class="form-control"
+						placeholder="類別"
+					/>
+				</div>
+				<div class="form-group">
+					<input
+						type="text"
+						name="image"
+						class="form-control"
+						placeholder="照片連結網址"
+					/>
+				</div>
+				<div class="form-group">
+					<input
+						type="text"
+						name="location"
+						class="form-control"
+						placeholder="地址"
+					/>
+				</div>
+				<div class="form-group">
+					<input
+						type="text"
+						name="phone"
+						class="form-control"
+						placeholder="電話"
+					/>
+				</div>
+				<div class="form-group">
+					<input
+						type="text"
+						name="google_map"
+						class="form-control"
+						placeholder="google 地圖連結網址"
+					/>
+				</div>
+				<div class="form-group">
+					<input
+						type="text"
+						name="rating"
+						class="form-control"
+						placeholder="幾顆星"
+					/>
+				</div>
+				<div class="form-group">
+					<textarea
+						name="description"
+						id=""
+						cols="30"
+						rows="5"
+						placeholder="餐廳簡介"
+						class="form-control"
+					></textarea>
+
+				</div>
+				<button type="submit" class="btn btn-ok">確認新增</button>
+				<a href="/" class="btn btn-ok">回餐廳列表</a>
+			</form>
+		</div>
+	</div>
+</div>

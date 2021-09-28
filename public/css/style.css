@@ -99,7 +99,7 @@ header {
 .card-box {
 }
 .card-box .card {
-	display: flex;
+	/* display: flex; */
 }
 
 .create {
@@ -132,4 +132,12 @@ header {
 .feature a {
 	color: #666;
 	text-decoration: none;
+}
+form {
+	text-align: center;
+}
+.btn-ok {
+	background-color: #4592af;
+	color: #fff;
+	margin: 0 auto 30px;
 }

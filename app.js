@@ -26,7 +26,36 @@ app.get("/", (req, res) => {
 		})
 		.catch((error) => console.log(error));
 });
-
+//前往新增餐廳表單
+app.get("/todos/new", (req, res) => {
+	res.render("new");
+});
+//新增單筆餐廳
+app.post("/todos/new", (req, res) => {
+	const name = req.body.name,
+		name_en = req.body.name_en,
+		category = req.body.category,
+		image = req.body.image,
+		location = req.body.location,
+		phone = req.body.phone,
+		google_map = req.body.google_map,
+		rating = req.body.rating,
+		description = req.body.description;
+	console.log(name);
+	Todo.create({
+		name,
+		name_en,
+		category,
+		image,
+		location,
+		phone,
+		google_map,
+		rating,
+		description,
+	})
+		.then(() => res.redirect("/"))
+		.catch((error) => console.log(error));
+});
 //瀏覽單筆資料
 app.get("/todos/:id", (req, res) => {
 	const id = req.params.id;
