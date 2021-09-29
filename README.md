@@ -21,10 +21,9 @@
 - 安裝
   - git clone
     ```
-    https://github.com/ohohopen/restaurant-list.git
+    https://github.com/ohohopen/restaurant.git
     ```
-  - 到專案位置執行
-    cd restaurant-list
+  - cd restaurant
     ```
     $ npm install
     ```
