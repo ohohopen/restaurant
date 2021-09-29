@@ -125,14 +125,6 @@ header {
 	font-size: 20px;
 	color: #666;
 }
-.feature a {
-	color: #666;
-	text-decoration: none;
-}
-.feature a {
-	color: #666;
-	text-decoration: none;
-}
 .feature form {
 	display: inline;
 }
@@ -144,14 +136,26 @@ header {
 	display: inline;
 }
 
-form {
-	text-align: center;
-}
 button {
 	cursor: pointer;
+}
+.feature a,
+a {
+	color: #666;
+	text-decoration: none;
 }
 .btn-ok {
 	background-color: #4592af;
 	color: #fff;
 	margin: 0 auto 30px;
+}
+/*  */
+form.was-validated input:invalid,
+form.was-validated textarea:invalid {
+	border: 1px solid red;
+}
+/* 驗證通過 */
+form.was-validated input:valid,
+form.was-validated textarea:valid {
+	border: 1px solid green;
 }
