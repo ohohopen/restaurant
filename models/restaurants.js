@@ -38,4 +38,4 @@ const todoSchema = new Schema({
     required: true
   }
 })
-module.exports = mongoose.model('Todo', todoSchema)
+module.exports = mongoose.model('RestaurantData', todoSchema)

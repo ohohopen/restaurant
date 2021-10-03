@@ -2,13 +2,13 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-10 col-12 mx-auto">
-			<form action="/todos/{{todos._id}}/edit" method="POST" novalidate>
+			<form action="/restaurants/{{restaurants._id}}/edit" method="POST" novalidate>
 				<div class="form-group">
 					<input
 						type="text"
 						name="name"
 						class="form-control"
-						value="{{todos.name}}"
+						value="{{restaurants.name}}"
             required
 					/>
           <div class="invalid-feedback">此欄位必填</div>
@@ -18,7 +18,7 @@
 						type="text"
 						name="name_en"
 						class="form-control"
-						value="{{todos.name_en}}"
+						value="{{restaurants.name_en}}"
             required
 					/>
           <div class="invalid-feedback">此欄位必填</div>
@@ -38,7 +38,7 @@
 						type="text"
 						name="image"
 						class="form-control"
-						value="{{todos.image}}"
+						value="{{restaurants.image}}"
             required
 					/>
           <div class="invalid-feedback">此欄位必填</div>
@@ -48,7 +48,7 @@
 						type="text"
 						name="location"
 						class="form-control"
-						value="{{todos.location}}"
+						value="{{restaurants.location}}"
             required
 					/>
           <div class="invalid-feedback">此欄位必填</div>
@@ -58,7 +58,7 @@
 						type="text"
 						name="phone"
 						class="form-control"
-						value="{{todos.phone}}"
+						value="{{restaurants.phone}}"
             required
 					/>
           <div class="invalid-feedback">此欄位必填</div>
@@ -68,7 +68,7 @@
 						type="text"
 						name="google_map"
 						class="form-control"
-						value="{{todos.google_map}}"
+						value="{{restaurants.google_map}}"
             required
 					/>
           <div class="invalid-feedback">此欄位必填</div>
@@ -112,7 +112,7 @@
 						rows="5"
 						class="form-control"
             required
-					>{{todos.description}}</textarea>
+					>{{restaurants.description}}</textarea>
           <div class="invalid-feedback">此欄位必填</div>
 				</div>
         <div class="text-center">
@@ -124,12 +124,12 @@
 	</div>
 </div>
 <script>
-  {{!-- 取出餐廳類別的option選項，抓出與本頁todos.category的選項將其selected設為true --}}
-  (function (){
+  {{!-- 取出餐廳類別的option選項，抓出與本頁restaurants.category的選項將其selected設為true --}}
+  ;(function (){
     const	options=document.querySelectorAll('option'); 
     const arr=[...options]
     arr.forEach((item)=>{
-      if(item.innerText==='{{ todos.category }}'){
+      if(item.innerText==='{{ restaurants.category }}'){
           {{!-- console.log(item.innerHTML)  --}}
           {{!-- item.outerHTML=null; --}}
           item.selected=true
@@ -138,29 +138,31 @@
     })
   }())
 
-  {{!--取出餐廳評價的radio，抓出與本頁todos.rating的數字相符的選項將其chedked設為true--}}
-  (function () {
+  {{!--取出餐廳評價的radio，抓出與本頁restaurants.rating的數字相符的選項將其chedked設為true--}}
+  ;(function () {
     const ratingRadios = document.querySelectorAll('.rating_radio');
     const arr = [...ratingRadios]
     arr.forEach((item) => {
       item.checked =false
-      if (item.value === '{{ todos.rating }}') {
+      if (item.value === '{{ restaurants.rating }}') {
         item.checked = true
       }
     })
   }())
 
   {{!-- 表單驗證 --}}
-  (function(){
+  ;(function(){
     const form = document.querySelector('form')
     const submitButton = document.querySelector('#submit-button')
     submitButton.addEventListener('click', function onSubmitButtonClicked(event) {
-      event.stopPropagation()
-      event.preventDefault()
-      console.log('e')
+      if(!form.checkValidity()){
+        event.stopPropagation()
+        event.preventDefault()
+      }
+
       form.classList.add('was-validated')
     })
 
-  }())
+  }());
 
 </script>

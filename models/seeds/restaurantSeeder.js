@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/restaurant-list')
 const db = mongoose.connection
-const todo = require('../todo')
+const restaurants = require('../restaurants')
 const defaultList = require('../../public/data/restaurant.json')
 const len = defaultList.results.length
 db.on('error', () => console.log('error'))
 db.once('open', () => {
   console.log(len)
   for (let i = 0; i < len; i++) {
-    todo.create({
+    restaurants.create({
       name: defaultList.results[i].name,
       name_en: defaultList.results[i].name_en,
       category: defaultList.results[i].category,

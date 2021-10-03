@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-10 col-12 mx-auto">
-			<form action="/todos/new" method="POST" novalidate>
+			<form action="/restaurants/new" method="POST" novalidate>
 				<div class="form-group">
 					<input
 						type="text"
@@ -128,14 +128,11 @@
 
 <script>
   {{!-- 表單驗證 --}}  
-    (function () {
+    ;(function () {
       const form = document.querySelector('form')
       const submitButton = document.querySelector('#submit-button')
       submitButton.addEventListener('click', function onSubmitButtonClicked(event) {
-              console.log('e')
-
         form.classList.add('was-validated')
       })
-
     }())
 </script>

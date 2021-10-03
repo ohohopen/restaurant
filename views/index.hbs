@@ -2,7 +2,7 @@
 <div class="container search-bar">
 	<div class="search-bar-outer">
 		<div class="search-bar-inner">
-			<form action="/search">
+			<form action="/search" method="POST">
 				<h4 class="mb-2">尋找餐廳：</h4>
 				<div class="input-group">
 					<input
@@ -30,40 +30,41 @@
 	<div class="row">
 		<div class="col-md-10 col-12 mx-auto">
 			<div class="card-columns">
-				{{#each todos}}
+				{{#each restaurants}}
 					<div class="mb-3 card-box">
-<a href="/todos/{{this._id}}">
-						<div class="card">
-							<img
-								class="card-img-top"
-								src="{{this.image}}"
-								alt="{{this.name}}"
-							/>
-							<div class="card-body p-3">
-								<h6 class="card-title mb-1">{{this.name}}</h6>
+						<a href="/restaurants/{{this._id}}">
+							<div class="card">
+								<img
+									class="card-img-top"
+									src="{{this.image}}"
+									alt="{{this.name}}"
+								/>
+								<div class="card-body p-3">
+									<h6 class="card-title mb-1">{{this.name}}</h6>
 
-								<div class="restaurant-category mb-1">
-									<i class="fas fa-utensils pr-2"></i>
-									{{this.category}}
-								</div>
-								<div>
-									<span
-										class="badge badge-pill badge-danger font-weight-normal"
-									>
-										{{this.rating}}
-										<i class="fas fa-star fa-xs"></i>
-									</span>
+									<div class="restaurant-category mb-1">
+										<i class="fas fa-utensils pr-2"></i>
+										{{this.category}}
+									</div>
+									<div>
+										<span
+											class="badge badge-pill badge-danger font-weight-normal"
+										>
+											{{this.rating}}
+											<i class="fas fa-star fa-xs"></i>
+										</span>
+									</div>
 								</div>
 							</div>
-						</div></a>
+						</a>
 						<div class="feature">
-							<a href="/todos/{{this._id}}/edit">
+							<a href="/restaurants/{{this._id}}/edit">
 								<i class="fas fa-edit"></i>
 							</a>
-							<a href="/todos/{{this._id}}">
+							<a href="/restaurants/{{this._id}}">
 								<i class="fas fa-eye"></i>
 							</a>
-              <form action="/todos/{{this._id}}/delete" method="POST">
+              <form action="/restaurants/{{this._id}}/delete" method="POST">
                 <button type="submit"><i class="fas fa-trash-alt"></i></button>
               </form>
 
