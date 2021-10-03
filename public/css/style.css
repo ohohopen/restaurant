@@ -159,3 +159,15 @@ form.was-validated input:valid,
 form.was-validated textarea:valid {
 	border: 1px solid green;
 }
+.new-search input {
+	border: 0;
+}
+.new-search button {
+	border: 0;
+	background-color: none;
+	background-color: #fff;
+}
+.new-search {
+	border: 1px solid #ccc;
+	overflow: hidden;
+}
