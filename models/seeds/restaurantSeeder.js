@@ -1,10 +1,12 @@
-const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/restaurant-list')
-const db = mongoose.connection
+// const mongoose = require('mongoose')
+// mongoose.connect('mongodb://localhost/restaurant-list')
+// const db = mongoose.connection
+const db=require('../../config/mogoose')
 const restaurants = require('../restaurants')
 const defaultList = require('../../public/data/restaurant.json')
 const len = defaultList.results.length
-db.on('error', () => console.log('error'))
+
+// db.on('error', () => console.log('error'))
 db.once('open', () => {
   console.log(len)
   for (let i = 0; i < len; i++) {
